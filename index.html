@@ -29,7 +29,38 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
+    <style>
+#more {display: none;}
+ #myBtn {
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #myBtn:hover {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.6);
+    }
+
+    #myBtn:active {
+      transform: scale(0.98);
+    }
+       p {
+      text-align: justify;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 20px;
+    }
+</style>
 </head>
 
 <body>
@@ -44,12 +75,10 @@
         </div>
     </div>
     <!-- Spinner End -->
-
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
         <a href="index.html" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5">
-            <h2 class="mb-2 text-white">Nautical HarmonyY</h2>
+            <h2 class="mb-2 text-white">Nautical Harmony</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -80,44 +109,42 @@
     <!-- Navbar End -->
 
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5">
-        <div class="owl-carousel header-carousel position-relative mb-5">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/2.jpg" alt=""style="width: 2000px; height:800px;">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Welcome to<span class="text-primary"> Nautical Harmony</span> Shipping Agency</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">A trusted maritime agency based in Yangon, Myanmar.</p>
-                                <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a> -->
-                                <!-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
-                            </div>
+   <!-- Carousel Start -->
+<div class="container-fluid p-0 pb-3">
+    <div class="owl-carousel header-carousel position-relative mb-5">
+        <div class="owl-carousel-item position-relative">
+            <!-- Remove fixed width and height -->
+            <img class="img-fluid w-100" src="img/2.jpg" alt="" style="max-height: 700px; object-fit: cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Welcome to <span class="text-primary">Nautical Harmony</span> Shipping Agency</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">A trusted maritime agency based in Yangon, Myanmar.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/3.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Welcome to<span class="text-primary"> Nautical Harmony</span> Shipping Agency</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">A trusted maritime agency based in Yangon, Myanmar.</p>
-                                <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a> -->
-                                <!-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a> -->
-                            </div>
+        </div>
+
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid w-100" src="img/3.jpg" alt="" style="max-height: 700px; object-fit: cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Welcome to <span class="text-primary">Nautical Harmony</span> Shipping Agency</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">A trusted maritime agency based in Yangon, Myanmar.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
+</div>
+<!-- Carousel End -->
 
     <!-- About Start -->
      <section id="about" class="container-xxl py-5">
@@ -126,15 +153,19 @@
             <div class="row g-5 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/about1.jpg" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-90 h-250" src="img/about1.jpg" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
-                    <h1 class="mb-5">Quick Transport and Logistics Solutions</h1>
-                    <p class="mb-5">At Nautical Harmony Shipping Agency, our clients benefit from reliable crewing solutions, including access to a pool of experienced and qualified officers and crew who meet international standards. We understand the demands of modern shipping and ensure that every operation is handled with precision and care.</p>
-                    <p>We understand the demands of modern shipping and ensure that every operation is handled with precision and care.Our company is staffed by a dedicated team of highly educated and qualified professionals who take full responsibility for their work. With deep industry knowledge and a strong commitment to excellence, we are fully equipped to support your maritime needs.</p>
-                    <div class="row g-4 mb-5">
+                    <h2>Quick Transport and Logistics Solutions</h2>
+                  <p>At Nautical Harmony Shipping Agency, our clients benefit from reliable crewing solutions, including access to a pool of experienced and qualified officers and crew who meet international standards. We understand the demands of modern shipping and ensure that every operation is handled with precision and care.
+                    Our agency is dedicated to providing comprehensive maritime services, including crew management, ship supply, and logistics support. We are committed to delivering high-quality services that meet the unique needs of each client, ensuring smooth and efficient operations in the maritime<span id="dots">...</span><span id="more">industry.
+Our company is staffed by a dedicated team of highly educated and qualified professionals who take full responsibility for their work. With deep industry knowledge and a strong commitment to excellence, we are fully equipped to support your maritime needs.
+We ensure that essential supplies, crew transfers, customs documentation and waste declarations are managed without delay efficiently and professionally. All services provided by Nautical Harmony Shipping Agency are implemented with the highest degree of professionalism and careful follow-up to maintain smooth and successful operations.
+At Nautical Harmony Shipping Agency, we take pride in being a dependable partner, offering value, trust, and results at every stage of your maritime journey.</span></p>
+<button onclick="myFunction()" id="myBtn">Read more</button>
+                    <!-- <div class="row g-4 mb-5"> -->
                         <!-- <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
                             <i class="fa fa-globe fa-3x text-primary mb-3"></i>
                             <h5>Global Coverage</h5>
@@ -145,7 +176,7 @@
                             <h5>On Time Delivery</h5>
                             <p class="m-0"></p>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
                     <!-- <a href="" class="btn btn-primary py-3 px-5">Explore More</a> -->
                 </div>
             </div>
@@ -691,6 +722,21 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
     statusDiv.innerHTML = '<div class="alert alert-danger">❌ Error occurred. Please try again later.</div>';
   });
 });
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
 </script>
 
 </body>
