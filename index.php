@@ -28,12 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Send mail
   if (mail($to, $subject, $email_content, $headers)) {
     echo "Email sent successfully.";
+  } else {
+    http_response_code(500);
+    echo "Failed to send email.";
+    error_log("Mail function failed for: $to");
   }
-  //  else {
-  //   http_response_code(500);
-  //   echo "Failed to send email.";
-  //   error_log("Mail function failed for: $to");
-  // }
 }
 ?>
 
