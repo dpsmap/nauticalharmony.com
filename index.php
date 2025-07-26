@@ -1,39 +1,62 @@
+
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Get and sanitize form data
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
+
+$mailSentMsg = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
   $name = htmlspecialchars(trim($_POST['name']));
   $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
   $subject = htmlspecialchars(trim($_POST['subject']));
   $message = htmlspecialchars(trim($_POST['message']));
 
-  // Validate inputs
-  if (empty($name) || empty($subject) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo "ကျေးဇူးပြု၍ အားလုံးဖြည့်ပြီး ပြန်ကြိုးစားပါ။";
-    exit;
+  $mail = new PHPMailer(true);
+  try {
+    //Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'info@dpsmap.com';
+    $mail->Password   = 'kejh idaq yups xgtm';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;
+
+    //Recipients
+    $mail->setFrom($email, $name);
+    // $mail->addAddress('soeminthan44@gmail.com', 'Nautical Harmony'); // Change to your receiving email
+    $mail->AddAddress($email, $name);
+    $mail->addReplyTo($email, $name);
+
+    //Content
+    // $mail->isHTML(true);
+    // $mail->Subject = $subject;
+    // $mail->Body    = nl2br($message) . "<br><br>From: $name ($email)";
+    // $mail->AltBody = $message . "\n\nFrom: $name ($email)";
+
+    $userName = htmlspecialchars($_POST['name']);
+    $userEmail = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = nl2br(htmlspecialchars($_POST['message']));
+    // var_dump($userName, $userEmail, $subject, $message);
+    // die();
+
+    $mail->isHTML(true);
+    $mail->Subject = "New Contact Form: " . $subject;
+
+    $mail->Body = "
+        <h3>New Contact Message</h3>
+        <p><strong>Name:</strong> {$userName}</p>
+        <p><strong>Email:</strong> {$userEmail}</p>
+        <p><strong>Message:</strong><br>{$message}</p>
+    ";
+
+    $mail->send();
+    $mailSentMsg = '<div class="alert alert-success mt-3">Thank you! Your message has been sent.</div>';
+  } catch (Exception $e) {
+    $mailSentMsg = '<div class="alert alert-danger mt-3">Message could not be sent. Mailer Error: ' . htmlspecialchars($mail->ErrorInfo) . '</div>';
   }
-
-  // Receiver email
-  $to = "linhtut123451@gmail.com";
-
-  // Build message
-  $email_content = "You received a message from $name <$email>\n\n";
-  $email_content .= "Subject: $subject\n\n";
-  $email_content .= "Message:\n$message";
-
-  // Headers
-  $headers = "From: $name <$email>" . "\r\n" .
-    "Reply-To: $email" . "\r\n";
-
-  // Send mail
-  if (mail($to, $subject, $email_content, $headers)) {
-    echo "Email sent successfully.";
-  }
-  //  else {
-  //   http_response_code(500);
-  //   echo "Failed to send email.";
-  //   error_log("Mail function failed for: $to");
-  // }
 }
 ?>
 
@@ -682,9 +705,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="col-md-6 contact-form wow fadeIn" data-wow-delay="0.1s">
             <h6 class="text-secondary text-uppercase">Contact Us</h6>
             <h1 class="mb-4">Send Your Message</h1>
-            <div class="bg-light p-4 rounded shadow-sm">
 
-              <!-- <form id="contact-form" method="POST" action=""> -->
+            <div class="bg-light p-4 rounded shadow-sm">
+              <?php if (!empty($mailSentMsg)) echo $mailSentMsg; ?>
               <form id="contact-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div class="row g-3">
                   <div class="col-md-6">
@@ -714,9 +737,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="col-12">
                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                   </div>
-                  <!-- <div class="col-12">
-                    <div id="form-status" class="text-center mt-3"></div>
-                  </div> -->
                 </div>
               </form>
             </div>
